@@ -1,0 +1,32 @@
+{
+  "name": "stress-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "npm run stress && npm run build && http-server -c-1 ./out",
+    "lint": "next lint",
+    "stress": "./scripts/stress.sh"
+  },
+  "dependencies": {
+    "@picocss/pico": "2.1.1",
+    "@types/artillery": "1.7.4",
+    "@types/lodash": "4.17.20",
+    "artillery": "2.0.21",
+    "http-server": "14.1.1",
+    "lodash": "4.17.21",
+    "markdown-to-jsx": "7.7.13",
+    "next": "15.4.6",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "recharts": "3.1.2",
+    "sass": "1.90.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "typescript": "^5"
+  }
+}

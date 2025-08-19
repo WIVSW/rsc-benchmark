@@ -1,0 +1,52 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "server": "dist/server.js",
+  "source": "src/server.tsx",
+  "targets": {
+    "react": {
+      "source": "src/react.ts",
+      "distDir": "dist",
+      "engines": {
+        "node": ">= 22"
+      },
+      "includeNodeModules": {
+        "react": true,
+        "react-dom/server": true
+      }
+    },
+    "server": {
+      "distDir": "dist",
+      "context": "react-server",
+      "engines": {
+        "node": ">= 22"
+      },
+      "includeNodeModules": {
+        "express": false
+      }
+    }
+  },
+  "scripts": {
+    "start": "node dist/server.js",
+    "build": "rm -rf dist && parcel build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@parcel/rsc": "2.15.4",
+    "@types/bun": "1.2.20",
+    "@types/deno": "2.3.0",
+    "@types/express": "5.0.3",
+    "@types/node": "24.3.0",
+    "@types/parcel-env": "0.0.9",
+    "@types/react": "19.1.10",
+    "@types/react-dom": "19.1.7",
+    "express": "5.1.0",
+    "parcel": "2.15.4",
+    "process": "0.11.10",
+    "react": "19.1.1",
+    "react-dom": "19.1.1"
+  }
+}

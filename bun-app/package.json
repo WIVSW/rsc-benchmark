@@ -1,0 +1,30 @@
+{
+  "name": "bun-app",
+  "version": "1.0.0",
+  "server": "dist/server.js",
+  "source": "src/server.tsx",
+  "targets": {
+    "react": {
+      "source": "src/react.ts",
+      "distDir": "dist",
+      "engines": {
+        "node": ">= 22"
+      },
+      "includeNodeModules": {
+        "react": true,
+        "react-dom/server": true
+      }
+    },
+    "server": {
+      "context": "react-server"
+    }
+  },
+  "scripts": {
+    "start": "bun dist/server.js",
+    "build": "rm -rf dist && parcel build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

@@ -1,0 +1,13 @@
+config:
+  http:
+    timeout: 1
+  phases:
+    - duration: "{{ duration }}"
+      arrivalRate: 1
+      rampTo: "{{ rampTo }}"
+scenarios:
+  - flow:
+    - loop:
+        - get:
+            url: "{{ url }}"
+      count: 1

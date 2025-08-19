@@ -1,0 +1,31 @@
+{
+  "name": "deno-app",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "server": "dist/server.js",
+  "source": "src/server.tsx",
+  "targets": {
+    "react": {
+      "source": "src/react.ts",
+      "distDir": "dist",
+      "engines": {
+        "node": ">= 22"
+      },
+      "includeNodeModules": {
+        "react": true,
+        "react-dom/server": true
+      }
+    },
+    "server": {
+      "context": "react-server"
+    }
+  },
+  "scripts": {
+    "start": "deno --allow-net --allow-read --unstable-detect-cjs --allow-env --no-npm dist/server.js",
+    "build": "rm -rf dist && parcel build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

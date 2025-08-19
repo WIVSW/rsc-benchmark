@@ -1,0 +1,67 @@
+services:
+  node-app:
+    build:
+      context: .
+      dockerfile: ./node-app/Dockerfile
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 2gb
+        reservations:
+          cpus: '2'
+          memory: 2gb
+    network_mode: "host"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/fizz"]
+
+  bun-app:
+    build:
+      context: .
+      dockerfile: ./bun-app/Dockerfile
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 2gb
+        reservations:
+          cpus: '2'
+          memory: 2gb
+    network_mode: "host"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3001/fizz"]
+
+  deno-app:
+    build:
+      context: .
+      dockerfile: ./deno-app/Dockerfile
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 2gb
+        reservations:
+          cpus: '2'
+          memory: 2gb
+    network_mode: "host"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3002/fizz"]
+  
+  stress-app:
+    build: ./stress-app
+    depends_on:
+      node-app: 
+        condition: service_healthy
+      bun-app: 
+        condition: service_healthy
+      deno-app: 
+        condition: service_healthy
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 2gb
+        reservations:
+          cpus: '2'
+          memory: 2gb
+    network_mode: "host"

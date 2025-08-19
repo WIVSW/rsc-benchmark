@@ -1,0 +1,13 @@
+config:
+  http:
+    timeout: 3600
+  phases:
+    - duration: "{{ duration }}"
+      arrivalRate: 1
+      maxVusers: 1
+scenarios:
+  - flow:
+    - loop:
+        - get:
+            url: "{{ url }}"
+      count: 1
